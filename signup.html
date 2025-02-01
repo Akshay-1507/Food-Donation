@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login2.css">
+    <title>SignUp</title>
+</head>
+<body>
+    <h1>SignUp</h1>
+    <h3>Register and start Serving your Food</h3>
+    <div class="login">
+
+        <form class="login-form">
+            <!-- <label>Enter Your Mail</label> -->
+            <div class="email">
+                <input type="email" placeholder="Enter Your Email" required id="email" name="email">
+            </div>
+            <!-- <label>Enter First Name</label> -->
+            <div class="firstlast">
+                <div class="firstName">
+                    <input type="text" placeholder="First Name" required id="firstname" name="firstName">
+                </div>
+                <!-- <label>Enter Last Name</label> -->
+                <div class="last">
+                    <input type="text" placeholder="Last Name" required id="lastname" name="lastname">
+                </div>
+            </div>
+            <!-- <label>Enter you</label> -->
+            <div class="password">
+                <input type="password" placeholder="Password" required id="password" name="password">
+            </div>
+            <!-- <label></label> -->
+            <div class="dob">
+                <input type="date" required id="dob" name="dob">
+            </div>
+            <label></label>
+            <div class="signup">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+
+        <div class="hr">
+            <a href="login .html">Already have an account: Do SignIn</a>
+        </div>
+    </div>
+
+    <script>
+
+const userName = localStorage.getItem('firstname');
+
+// Check if the name is available in localStorage
+if (userName) {
+    // Update the span with the user's name
+    document.getElementById('userName').textContent = userName;
+} else {
+    // If no name is stored, use a default message
+    document.getElementById('userName').textContent = 'Guest';
+}
+        const formE1 = document.querySelector('.login-form');
+        formE1.addEventListener('submit', event => {
+            event.preventDefault();
+
+            const formData = new FormData(formE1);
+            const data = Object.fromEntries(formData);
+
+            const email = document.getElementById('email').value;
+        const firstname = document.getElementById('firstname').value;
+        const lastname = document.getElementById('lastname').value;
+        const password = document.getElementById('password').value;
+        const dob = document.getElementById('dob').value;
+
+        // Print the values to the console
+        console.log("Email:", email);
+        console.log("First Name:", firstname);
+        console.log("Last Name:", lastname);
+        console.log("Password:", password);
+        console.log("Date of Birth:", dob);
+
+        localStorage.setItem('firstname', firstname);
+
+            fetch('http://localhost:5050/sign/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect on success
+                    window.location.href = "Ngo-Main.html"; // Change to your target URL
+                } else {
+                    console.error('Error:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Fetch Error:', error));
+        });
+    </script>
+</body>
+</html>

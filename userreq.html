@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Request Form</title>
+  <style>
+    /* General Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url('ngo back.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid orange;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px 35px 10px 15px;
+      border: 2px white;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+      color: #333;
+      border-bottom: 2px solid #e65c00;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #ff6600;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group select {
+      padding-left: 40px;
+    }
+
+    .file-input {
+      margin-bottom: 15px;
+    }
+
+    #imageUpload {
+      padding: 10px;
+      border: 2px dashed orange;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      background-color: #ff6600;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background-color: #e65c00;
+    }
+
+    #fetchLocation {
+      background-color: #ff6600;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #fetchLocation:hover {
+      background-color: #e65c00;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    textarea:focus {
+      border-color: #ff6600;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Food Request Form</h1>
+    <form id="foodForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="food">Food Item:</label>
+        <input type="text" id="food" name="food" placeholder="Enter food item" required>
+      </div>
+
+      <div class="form-group">
+        <label for="foodType">Food Type:</label>
+        <select id="foodType" name="foodType" required>
+          <option value="" disabled selected>Select Food Type</option>
+          <option value="raw">Raw Food</option>
+          <option value="processed">Processed Food</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <div class="input-group">
+          <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+          <input type="text" id="quality" name="quality" placeholder="Enter food quality" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason:</label>
+        <textarea id="reason" name="reason" rows="4" placeholder="Explain your reason" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3" placeholder="Enter your address or allow location access" required></textarea>
+        <button type="button" id="fetchLocation" style="margin-top: 10px;">Use Current Location</button>
+      </div>
+
+      <div class="file-input">
+        <label for="imageUpload">Upload Food Image:</label>
+        <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="#">terms and conditions</a>.</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('foodForm');
+    const fetchLocationBtn = document.getElementById('fetchLocation');
+    const addressField = document.getElementById('address');
+    const imageUpload = document.getElementById('imageUpload');
+
+    // Fetch location on button click
+    fetchLocationBtn.addEventListener('click', async () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const { latitude, longitude } = position.coords;
+            const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`;
+            try {
+              const response = await fetch(apiUrl);
+              if (!response.ok) throw new Error('Error fetching address');
+              const data = await response.json();
+              const fullAddress = data.display_name || "Address not found";
+              addressField.value = fullAddress;
+            } catch (error) {
+              console.error("Error:", error.message);
+            }
+          },
+          (error) => {
+            alert("Unable to fetch location. Please allow location access.");
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Prevent page reload
+
+      // Get form data
+      const name = document.getElementById('name').value;
+      const food = document.getElementById('food').value;
+      const foodType = document.getElementById('foodType').value;
+      const quantity = document.getElementById('quantity').value;
+      const quality = document.getElementById('quality').value;
+      const reason = document.getElementById('reason').value;
+      const address = document.getElementById('address').value;
+      const image = imageUpload.files[0] ? imageUpload.files[0].name : "No image uploaded";
+
+      // Create an object for the new entry
+      const entry = { name, food, foodType, quantity, quality, reason, address, image };
+
+      // Retrieve existing data from local storage
+      const existingData = JSON.parse(localStorage.getItem('foodRequests')) || [];
+
+      // Add the new entry to the array
+      existingData.push(entry);
+
+      // Save updated array back to local storage
+      localStorage.setItem('foodRequests', JSON.stringify(existingData));
+
+      // Save name for the Thank You page
+      localStorage.setItem('userName', name);
+
+      // Redirect to the Thank You page
+      window.location.href = 'thankyou.html'; 
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngo-Main</title>
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+    <section class="main">
+        <section class="header">
+            <div class="logo">
+                <img src="8596903.png" alt="logo">
+            </div>
+            <div class="header-right">
+                <div class="opentap">
+                    <a href="admin/request.html">
+                        <img src="th (3).jpeg" alt="Message" style="width:30px; height:30px;">
+                    </a>
+                    <p>Services</p>
+                    <a href="admin/request.html">
+                        <img src="Profile-Male-PNG.png" alt="Message" style="width:30px; height:30px;">
+                    </a>
+                    <p class="firstName" id="firstName" name="firstname">Services</p>
+                </div>
+                </div>
+              
+            </div>
+        </section>
+        
+        <section class="why-us">
+            <div class="overlay">
+                <h2>Why Us?</h2>
+                <p>
+                    Our NGO is deeply committed to the urgent issue of food waste, a global crisis that impacts the environment, economy, and social wellbeing. Every day, tons of food are wasted while millions of people around the world go hungry. We are on a mission to combat this waste by promoting sustainability, educating communities, and creating actionable solutions that benefit both individuals and the planet.
+
+                    Through partnerships with local businesses, organizations, and individuals, we are working to reduce food waste at its source and ensure that surplus food reaches those who need it the most. By repurposing food that would otherwise be discarded, we not only prevent waste but also help provide nutritious meals to communities in need.
+
+                    Our goal is not just to redistribute food, but to inspire a change in behavior, encouraging people to rethink how they purchase, consume, and dispose of food. Through awareness campaigns, workshops, and community programs, we educate people about the impact of food waste on the environment, from the carbon emissions produced during food production to the water wasted in growing crops that never make it to the table.
+
+                    Together, we can make a lasting impact. We believe that small individual actions, when multiplied, can lead to powerful change. Every effort to reduce waste and improve food security contributes to building a more sustainable and equitable world. We are working tirelessly to build a future where food is valued, shared, and used responsibly. By joining our mission, you can be part of this positive movement to help reduce food waste, fight hunger, and promote a healthier planet for future generations.
+
+                    Join us today and make a difference in your community and the world!
+                </p>
+            </div>
+            <!-- <div class="donate">
+                <a href="#" class="join">Join Now</a>
+            </div> -->
+        </section>
+        
+        <section id="causes" class="causes">
+            <h2>Our services</h2>
+            <div class="services">
+                <div class="cause">
+                    <img src="th (2).jpeg" alt="Food rescue">
+                    <h3>Food Rescue</h3>
+                    <p>We collect surplus food from restaurants, stores, and events, ensuring it reaches those in need instead of going to waste.</p>
+                </div>
+                <div class="cause">
+                    <img src="JTH_V3_Community-Kitchen-3.jpg" alt="Community kitchens">
+                    <h3>Community Kitchens</h3>
+                    <p>Our community kitchens provide free meals to underprivileged communities using the rescued food.</p>
+                </div>
+                <div class="cause">
+                    <img src="e91ae6ad6674eb1edfeac63233d78cf8.png" alt="Awareness programs">
+                    <h3>Awareness Programs</h3>
+                    <p>We conduct workshops and campaigns to educate people about reducing food waste.</p>
+                </div>
+                <div class="cause">
+                    <img src="shipping0822-helpnow-photo-1.jpg" alt="Help Poor">
+                    <h3>Help Poor</h3>
+                    <p>We donate food to the people who are in need for food.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="collab">
+            <h1>Collabs:</h1>
+            <div class="firstfour">
+                <a href="#"><img src="resta-img.jpg" alt="Restaurant"></a>
+                <a href="#"><img src="f2cb9b90b7e67ff0c2f507918439f810.png" alt="Image 2"></a>
+                <a href="#"><img src="image_processing20200424-23023-2clan4.png" alt="Image 3"></a>
+                <a href="#"><img src="b623e7a11bc1a3f606bcfd925ef8e409.png" alt="Image 4"></a>
+            </div>
+            <div class="nextthree">
+                <a href="#"><img src="th.jpeg" alt="Image 5"></a>
+                <a href="#"><img src="pngtree-resort-logo-vector-png-image_12254282.png" alt="Resort"></a>
+                <a href="#"><img src="pngtree-logo-for-a-bakery-featuring-a-flat-design-with-a-baker-hat-and-wheat-spice-vector-picture-image_10827379.png" alt="Bakery"></a>
+            </div>
+            <div class="nexttwo">
+                <a href="#"><img src="th (1).jpeg" alt="Image 6"></a>
+                <a href="#"><img src="organic-farm-logo-ADEFB971DB-seeklogo.com.png" alt="Organic Farm"></a>
+            </div>
+            <div class="lastone">
+                <a href="#"><img src="pngtree-house-with-no-background-png-image_13001602.png" alt="House"></a>
+            </div>
+        </section>
+<section class="footer">
+            <p>© 2024 Save Food NGO | All rights reserved</p>
+        </section>
+    </section>
+    <script>
+         const userName = localStorage.getItem('firstname');
+
+// Check if the name is available in localStorage
+if (userName) {
+    // Update the profile section with the user's first name
+    document.getElementById('firstName').textContent ="Hi,"+ userName ;  // Adds "Services" after the name
+} else {
+    // If no name is stored, leave the default "Services" text
+    document.getElementById('firstName').textContent = "Services";
+}
+    </script>
+</body>
+</html>

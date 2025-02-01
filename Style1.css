@@ -1,0 +1,358 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+/*   
+  .header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px; 
+    border-bottom: 1px solid black;
+    background-color: #ffffff;
+  } */
+  
+  /* .logo {
+    Styles for the logo on the left
+  } */
+  
+  /* .header1 {
+    display: flex;
+    justify-content: space-between; 
+    list-style-type: none; 
+    
+
+    
+  } */
+  
+  /* .header1 ul { */
+    /* margin-left: 75px;  */
+    /* padding: 8px;
+    font-size: 25px;
+    margin-right: 35px;
+  }
+  .ul{
+    display: flex;
+  }
+  .logo ul{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between; 
+  }
+  .contact {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #2c3e50;
+    color: #fff;
+  }
+  .contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  } */
+   /* General styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+/* Main container */
+.main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: wihte;
+  padding: 10px 20px;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+/* Header-right section */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Opentap section */
+.opentap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Service icons and text */
+.opentap a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.opentap a:hover {
+  transform: scale(1.1);
+}
+
+.opentap img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.opentap p {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* First Name section */
+.firstName {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.firstName:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+  .contact form input,
+  .contact form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+  }
+  .contact form button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 20px;
+    background: #1abc9c;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .contact form button:hover {
+    background: #16a085;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 1rem 2rem;
+    background: #333;
+    color: #fff;
+  }
+  .causes {
+    padding: 3rem 2rem;
+    border-bottom: 1px solid black;
+    justify-content: center;
+    gap: 2rem;
+    background: #fff;
+    flex-wrap: wrap;
+    background-color: #647d96;
+  }
+  .causes h2{
+    /* align-items: center; */
+    margin-left: 555px;
+
+  }
+  .cause {
+    text-align: center;
+    max-width: 300px;
+    /* display: flex; */
+    padding-right: 35px;
+    padding-left: 15px;
+    margin-top: 15px;
+  }
+  .cause img {
+    width: 100%;
+    border-radius: 10px;
+    
+  }
+  .cause h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  .cause p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  .services{
+    display: flex;
+    /* padding-right: 55px; */
+  }
+
+
+.collab {
+    text-align: center;
+    /* margin-top: 20px; */
+    background-color: #c8b2b2;
+}
+
+.collab h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    /* color: white; */
+    
+}
+
+.collab div {
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 20px; Space between rows */
+   
+}
+
+.firstfour img, .nextthree img, .nexttwo img, .lastone img {
+    width: 100px; /* Default image size */
+    height: auto;
+    margin: 0 10px; /* Space between images */
+}
+
+/* Adjust sizes for each row to create the triangular effect */
+.firstfour {
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto; /* Center the first row */
+}
+
+.nextthree {
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto; /* Center the second row */
+}
+
+.nexttwo {
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto; /* Center the third row */
+}
+
+.lastone {
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto; /* Center the last image */
+}
+
+.lastone img {
+    width: 120px; /* Slightly larger image for the last row */
+}
+
+
+.why-us {
+    /* position: relative; */
+    height: 500px; 
+    background-image: url('341ecb3733f192a8d6a4e5bd0fce673e.jpg'); /* Replace with your food waste image */
+    background-size: cover; /* Make the background cover the entire section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the image fixed as you scroll */
+    color: white;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.why-us .overlay {
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+    /* padding: 20px; */
+    width: 100%; /* Adjust width */
+    /* max-width: px; Limit the width */
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 90%; /* Adjust text width */
+    margin: 0 auto;
+    
+}
+.donate{
+    margin-top: 25px;
+    
+    
+}
+.join{
+    margin-top: 15px;
+    border: 1px solid rgb(255, 0, 0);
+    color: black;
+    font-weight:bolder;
+    font-size: 20px;
+    padding: 20px;
+    background-color: red;
+    border-radius: 10px;
+
+}
+.logo img{
+    width: 100px;
+    margin-left:15px ;
+}
+.ul{
+    font-weight: bolder;
+    font-size: 25px;
+    font-style:initial;
+}
+.dd{
+    /* margin-top: 15px; */
+    border: 1px solid rgb(255, 0, 0);
+    color: black;
+    font-weight:bolder;
+    font-size: 20px;
+    /* padding: 20px; */
+    background-color: red;
+    border-radius: 10px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-right div {
+  text-align: center;
+}
+
+.header-right img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.header-right p {
+  font-size: 14px;
+  color: #333;
+}
+
